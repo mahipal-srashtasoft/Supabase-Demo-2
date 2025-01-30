@@ -110,7 +110,7 @@ function Category() {
         <thead className="bg-gray-200">
           <tr>
             <th className="px-4 py-2 text-left border-b border-gray-300">Category Name</th>
-            {localStorage.getItem("token") && (
+            {localStorage.getItem("sb-iizqlfirdlastklaioef-auth-token") && (
               <th className="px-4 py-2 text-left border-b border-gray-300">Actions</th>
             )}
           </tr>
@@ -119,7 +119,7 @@ function Category() {
           {categories.map((category) => (
             <tr key={category.id} className="hover:bg-gray-100">
               <td className="px-4 py-2 border-b border-gray-300">{category.category_name}</td>
-              {localStorage.getItem("token") && (
+              {localStorage.getItem("sb-iizqlfirdlastklaioef-auth-token") && (
                 <td className="px-4 py-2 border-b border-gray-300">
                   <button
                     className="p-2 rounded-l-lg cursor-pointer text-white bg-yellow-500"

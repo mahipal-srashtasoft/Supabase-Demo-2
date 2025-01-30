@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { supabase } from "../supabaseClient"; // Import your Supabase client
 import toast, { Toaster } from "react-hot-toast";
 import HOC from "./HOC/HOC";
@@ -36,13 +36,8 @@ function Login() {
         alert(`Login failed: ${error.message}`);
         toast.error("Login error: " + error.message);
       } else {
-
-        // Save the token to localStorage (if needed for further API calls)
-        const token = data.session?.access_token;
-        localStorage.setItem("token", token);
-
-        toast.success("Login successful!");
-        navigate("/add-product"); // Redirect to Add Product page
+        // toast.success("Login successful!");
+        // navigate("/add-product"); // Redirect to Add Product page
       }
     } catch (err) {
       toast.error("Unexpected error: " + err.message);
@@ -143,9 +138,14 @@ function Login() {
           }`}
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Logging in..." : loginMethod === "password" ? "Login with Password" : "Send Magic Link"}
+          {isSubmitting
+            ? "Logging in..."
+            : loginMethod === "password"
+            ? "Login with Password"
+            : "Send Magic Link"}
         </button>
       </form>
+      <NavLink to="/forgot-password">Forgot Password?</NavLink>
     </>
   );
 }

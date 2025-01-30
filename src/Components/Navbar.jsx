@@ -4,11 +4,11 @@ import { supabase } from "../supabaseClient";
 
 function Navbar() {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("sb-iizqlfirdlastklaioef-auth-token"));
 
   useEffect(() => {
     const handleStorageChange = () => {
-      setIsLoggedIn(!!localStorage.getItem("token"));
+      setIsLoggedIn(!!localStorage.getItem("sb-iizqlfirdlastklaioef-auth-token"));
     };
 
     window.addEventListener("storage", handleStorageChange);
@@ -21,16 +21,11 @@ function Navbar() {
   const handleLogout = async () => {
     let { error } = await supabase.auth.signOut();
     console.log(error);
-    localStorage.removeItem("token");
+    localStorage.removeItem("sb-iizqlfirdlastklaioef-auth-token");
     setIsLoggedIn(false);
     navigate("/");
   };
 
-  const handleLogin = () => {
-    // After successful login, set the token in localStorage and update the state
-    localStorage.setItem("token", "your-login-token");
-    setIsLoggedIn(true);
-  };
 
   return (
     <nav className="bg-blue-600 p-4 shadow-md">
@@ -81,7 +76,7 @@ function Navbar() {
             <>
               <li>
                 <NavLink
-                  to="/"
+                  to="/login"
                   className={({ isActive }) =>
                     isActive
                       ? "text-white font-semibold"

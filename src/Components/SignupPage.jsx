@@ -29,7 +29,7 @@ const SignupPage = () => {
       }
 
       setMessage("Signup successful! Check your email for verification.");
-      navigate("/");
+      // navigate("/");
     } catch (error) {
       setMessage(error.message || "An error occurred.");
     } finally {

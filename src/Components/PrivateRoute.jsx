@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 function PrivateRoute({ children }) {
-  const token = localStorage.getItem("token"); // Check for token in localStorage
+  const token = localStorage.getItem("sb-iizqlfirdlastklaioef-auth-token"); // Check for token in localStorage
 
   if (!token) {
     // If no token, redirect to Show Products page

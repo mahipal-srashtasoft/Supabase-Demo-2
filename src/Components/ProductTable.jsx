@@ -102,7 +102,7 @@ function ProductTable() {
               <th className="px-4 py-2 text-left border-b border-gray-300">
                 Category
               </th>
-              {localStorage.getItem("token") && (
+              {localStorage.getItem("sb-iizqlfirdlastklaioef-auth-token") && (
                 <th className="px-4 py-2 text-left border-b border-gray-300">
                   Action
                 </th>
@@ -124,7 +124,7 @@ function ProductTable() {
                       (category) => category.id === product.product_category_id
                     )?.category_name}
                 </td>
-                {localStorage.getItem("token") && (
+                {localStorage.getItem("sb-iizqlfirdlastklaioef-auth-token") && (
                   <td className="px-4 py-2 border-b border-gray-300">
                     <button
                       className="p-2 rounded-l-lg cursor-pointer text-white bg-yellow-500"

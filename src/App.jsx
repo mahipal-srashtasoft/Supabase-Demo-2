@@ -6,16 +6,26 @@ import Login from "./Components/Login";
 import PrivateRoute from "./Components/PrivateRoute";
 import Category from "./Components/Category";
 import SignupPage from "./Components/SignupPage";
+import NotFoundPage from "./Components/NotFoundPage";
+import ForgotPassword from "./Components/ForgotPassword";
+import UpdatePassword from "./Components/UpdatePassword";
+
+
+
 
 function App() {
+
   return (
     <Router>
       <div className="min-h-screen bg-gray-100">
         <Routes>
           {/* Public Routes */}
-          <Route path="/" element={<Login />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/show-products" element={<ProductTable />} />
+          <Route path="/login" element={<Login />} />
+           <Route path="/signup" element={<SignupPage />} />
+           <Route path="/forgot-password" element={<ForgotPassword />} />
+           <Route path="/update-password" element={<UpdatePassword />} />
+           <Route path="/*" element={<NotFoundPage />} />
+         {/*<Route path="/show-products" element={<ProductTable />} />
           <Route
             path="/*"
             element={
@@ -25,7 +35,6 @@ function App() {
             }
           />
 
-          {/* Private Route */}
           <Route
             path="/add-product"
             element={
@@ -49,7 +58,7 @@ function App() {
                 <AddProductForm />
               </PrivateRoute>
             }
-          />
+          /> */}
         </Routes>
       </div>
     </Router>
